@@ -2,17 +2,17 @@
 // The assistant may only answer from this data.
 
 export const BUSINESS = {
-  name: "KVS Auto Detailing",
-  city: "Phoenix, Arizona",
-  address: "2400 E Camelback Rd, Phoenix, AZ 85016",
-  phone: "(602) 555-0199",
-  email: "studio@kvsautodetailing.example",
+  name: "Tru Detailerz",
+  city: "Greater Toronto Area, Ontario",
+  address: "Mobile service — Greater Toronto Area",
+  phone: "437-296-2198",
+  email: "",
   hours: [
     { day: "Monday – Friday", time: "8:00 AM – 6:00 PM" },
     { day: "Saturday", time: "9:00 AM – 4:00 PM" },
     { day: "Sunday", time: "Closed" },
   ],
-  serviceArea: "Phoenix, Scottsdale, Tempe, Chandler, Mesa and Paradise Valley",
+  serviceArea: "GTA",
 };
 
 export type ServiceInfo = {
@@ -48,7 +48,7 @@ export const FAQ = [
 
 export const POLICIES = [
   "Appointments are available Monday–Saturday during business hours.",
-  "Studio services (coating, correction, PPF) are performed at our Phoenix studio.",
+  "Ceramic coating and paint correction are performed with an on-site or indoor setup based on the booking.",
   "Final pricing is confirmed after an in-person paint inspection.",
   "Please provide 24 hours' notice to reschedule or cancel.",
 ];
@@ -61,7 +61,7 @@ export function serviceBySlug(slug: string) {
 
 export function knowledgeAsText() {
   return [
-    `Business: ${BUSINESS.name}, ${BUSINESS.city}. Serves ${BUSINESS.serviceArea}. Contact by email: ${BUSINESS.email}.`,
+    `Business: ${BUSINESS.name}, ${BUSINESS.city}. Serves ${BUSINESS.serviceArea}. Phone: ${BUSINESS.phone}.`,
     `Hours: ${BUSINESS.hours.map((h) => `${h.day} ${h.time}`).join("; ")}.`,
     "Services:",
     ...SERVICES.map((s) => `- ${s.name}: from $${s.priceFrom} (typical range $${s.priceFrom}–$${s.priceTo}), about ${s.durationHours} hours. ${s.description} Includes: ${s.includes.join(", ")}. Ideal for: ${s.ideal}`),

@@ -6,9 +6,9 @@ import { FAQ } from "@/lib/knowledge";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Ceramic Coating, Paint Correction & PPF | KVS Auto Detailing" },
-      { name: "description", content: "Answers about ceramic coating longevity, paint correction, preparation and booking at KVS Auto Detailing." },
-      { property: "og:title", content: "FAQ — KVS Auto Detailing" },
+      { title: "FAQ — Ceramic Coating & Paint Correction | Tru Detailerz" },
+      { name: "description", content: "Answers about ceramic coating longevity, paint correction, preparation and mobile booking with Tru Detailerz." },
+      { property: "og:title", content: "FAQ — Tru Detailerz" },
       { property: "og:description", content: "Common questions about our detailing services." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

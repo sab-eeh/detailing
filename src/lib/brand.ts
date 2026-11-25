@@ -7,16 +7,16 @@
  */
 export const BRAND = {
   /** Product / platform identity shown in the dashboard, auth screen and metadata. */
-  productName: "KVS Auto Detailing",
+  productName: "Tru Detailerz",
   /** Agency providing the solution. */
   agencyName: "Operant Scale",
   /** Subtle footer attribution. */
-  footerAttribution: "KVS Auto Detailing",
+  footerAttribution: "Tru Detailerz",
   /** Show the demo-mode indicator in the dashboard header. */
   demoMode: true,
   /** The fictional business whose sample data fills the demo. */
   demoBusiness: {
-    name: "KVS Auto Detailing",
-    disclaimer: "KVS Auto Detailing sample data is fictional and used for product demonstration.",
+    name: "Tru Detailerz",
+    disclaimer: "Tru Detailerz sample data is fictional and used for product demonstration.",
   },
 } as const;

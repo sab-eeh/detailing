@@ -64,7 +64,7 @@ export async function runInstantResponse(db: DB, opts: { leadId: string; custome
     channel: "sms",
     direction: "outbound",
     automated: true,
-    body: `Hi ${opts.firstName}, thanks for reaching out to KVS Auto Detailing! We received your ${opts.serviceName} request and a specialist will confirm details shortly. Reply here with any questions.`,
+    body: `Hi ${opts.firstName}, thanks for reaching out to Tru Detailerz! We received your ${opts.serviceName} request and will confirm details shortly. Reply here with any questions.`,
     created_at: at(2),
   });
   await db.from("lead_activities").insert({ lead_id: opts.leadId, customer_id: opts.customerId, type: "auto_response", title: "Automatic response sent", detail: "Instant Lead Response sent an SMS confirmation", created_at: at(2) });

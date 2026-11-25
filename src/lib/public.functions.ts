@@ -7,7 +7,7 @@ import { knowledgeAsText, SERVICES, BUSINESS, TIME_SLOTS, ADDONS, addonBySlug, t
 export const getServiceCatalog = createServerFn({ method: "GET" }).handler(async (): Promise<ServiceInfo[]> => {
   const serviceRoleKey = process.env["SUPABASE_SERVICE_ROLE_KEY"] || process.env["SUPABASE_PUBLISHABLE_KEY"];
   if (!process.env["SUPABASE_URL"] || !serviceRoleKey) {
-    console.warn("[public] Supabase is not configured; serving the sample KVS service catalog.");
+    console.warn("[public] Supabase is not configured; serving the sample Tru Detailerz service catalog.");
     return SERVICES;
   }
 
@@ -221,7 +221,7 @@ export const askAssistant = createServerFn({ method: "POST" })
     const key = process.env["LOVABLE_API_KEY"];
     if (!key) return { ...demoReply(data.messages), mode: "demo" as const };
     try {
-      const system = `You are the virtual assistant for ${BUSINESS.name} in Phoenix, AZ. Answer ONLY using the knowledge below. If the answer isn't in it, say you're not sure and offer to connect them with the team. Be concise (2-4 sentences), warm and professional. Quote prices as "starting around" ranges and note the final price depends on paint condition. Never invent availability; say you can help find a time. End your message with the tag [ACTION:quote] if the customer should request a quote, [ACTION:book] if they want to schedule, or nothing otherwise.\n\nKNOWLEDGE:\n${knowledgeAsText()}`;
+      const system = `You are the virtual assistant for ${BUSINESS.name} in the Greater Toronto Area. Answer ONLY using the knowledge below. If the answer isn't in it, say you're not sure and offer to connect them with the team. Be concise (2-4 sentences), warm and professional. Quote prices as "starting around" ranges and note the final price depends on paint condition. Never invent availability; say you can help find a time. End your message with the tag [ACTION:quote] if the customer should request a quote, [ACTION:book] if they want to schedule, or nothing otherwise.\n\nKNOWLEDGE:\n${knowledgeAsText()}`;
       const res = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
         method: "POST",
         headers: { "Lovable-API-Key": key, Authorization: `Bearer ${key}`, "X-Lovable-AIG-SDK": "fetch", "Content-Type": "application/json" },

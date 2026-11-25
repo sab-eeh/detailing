@@ -18,9 +18,9 @@ export const Route = createFileRoute("/quote")({
   validateSearch: (s: Record<string, unknown>): { service?: string } => (typeof s.service === "string" ? { service: s.service } : {}),
   head: () => ({
     meta: [
-      { title: "Request a Detailing Quote — KVS Auto Detailing Phoenix" },
-      { name: "description", content: "Tell us about your vehicle and get a ceramic coating, paint correction or PPF quote from KVS Auto Detailing in Phoenix." },
-      { property: "og:title", content: "Request a Quote — KVS Auto Detailing" },
+      { title: "Request a Detailing Quote — Tru Detailerz GTA" },
+      { name: "description", content: "Tell us about your vehicle and get a ceramic coating or paint correction quote from Tru Detailerz in the GTA." },
+      { property: "og:title", content: "Request a Quote — Tru Detailerz" },
       { property: "og:description", content: "Get a detailing recommendation for your vehicle." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -125,7 +125,7 @@ function QuotePage() {
                       <Field label="First name" htmlFor="fn" error={errors.firstName}><input id="fn" autoComplete="given-name" className={inputCls} value={f.firstName} onChange={set("firstName")} placeholder="John" /></Field>
                       <Field label="Last name" htmlFor="ln" error={errors.lastName}><input id="ln" autoComplete="family-name" className={inputCls} value={f.lastName} onChange={set("lastName")} placeholder="Smith" /></Field>
                       <Field label="Email" htmlFor="em" error={errors.email}><input id="em" type="email" autoComplete="email" className={inputCls} value={f.email} onChange={set("email")} placeholder="john@example.com" /></Field>
-                      <Field label="Phone" htmlFor="ph" error={errors.phone}><input id="ph" type="tel" autoComplete="tel" className={inputCls} value={f.phone} onChange={set("phone")} placeholder="(602) 555-0123" /></Field>
+                      <Field label="Phone" htmlFor="ph" error={errors.phone}><input id="ph" type="tel" autoComplete="tel" className={inputCls} value={f.phone} onChange={set("phone")} placeholder="(437) 296-2198" /></Field>
                     </div>
                   </StepPanel>
                 )}

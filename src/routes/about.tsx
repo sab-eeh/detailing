@@ -7,10 +7,10 @@ import { Reveal, ParallaxImage } from "@/components/site/Motion";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About KVS Auto Detailing — Phoenix Detailing Studio" },
-      { name: "description", content: "A climate-controlled Phoenix studio focused on paint correction, ceramic coating and paint protection film." },
-      { property: "og:title", content: "About — KVS Auto Detailing" },
-      { property: "og:description", content: "Our approach to premium detailing in Phoenix." },
+      { title: "About Tru Detailerz — Mobile Detailing in the GTA" },
+      { name: "description", content: "Mobile detailing focused on paint correction, ceramic coating and interior and exterior care." },
+      { property: "og:title", content: "About — Tru Detailerz" },
+      { property: "og:description", content: "Our approach to premium mobile detailing in the GTA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -22,14 +22,14 @@ function About() {
   return (
     <SiteLayout>
       <PageHeader eyebrow="About" title="A studio built around the finish.">
-        KVS Auto Detailing is a Phoenix detailing studio focused on paint correction, ceramic coating and paint protection film — with the same process on every vehicle.
+        Tru Detailerz is a mobile auto detailing service in the Greater Toronto Area, focused on paint correction, ceramic coating and complete interior and exterior care — with the same process on every vehicle.
       </PageHeader>
       <section className="container-site grid gap-12 py-24 md:py-32 lg:grid-cols-2 lg:items-center">
         <ParallaxImage src={GALLERY[2].src} alt="Machine polishing an Audi RS5 hood" className="aspect-[4/5] w-full" />
         <div className="space-y-8">
           {[
             ["Inspect first", "Every vehicle is inspected under studio lighting and paint-depth measured before we recommend anything."],
-            ["Controlled environment", "Coatings and film are installed indoors, away from dust and Arizona heat."],
+            ["Careful setup", "The work area is prepared for clean, consistent coating and correction results."],
             ["Clear communication", "You get a clear quote, a confirmed time, and a reminder before your visit."],
           ].map(([t, d]) => (
             <Reveal key={t} className="border-t border-navy/15 pt-6">

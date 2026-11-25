@@ -6,10 +6,10 @@ import { BUSINESS } from "@/lib/knowledge";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact KVS Auto Detailing — Phoenix, AZ" },
-      { name: "description", content: "Email our Phoenix studio, see our hours, or request a quote online." },
-      { property: "og:title", content: "Contact — KVS Auto Detailing" },
-      { property: "og:description", content: "Studio hours and email contact." },
+      { title: "Contact Tru Detailerz — Mobile Detailing in the GTA" },
+      { name: "description", content: "Call Tru Detailerz at 437-296-2198, see our hours, or request a quote online." },
+      { property: "og:title", content: "Contact — Tru Detailerz" },
+      { property: "og:description", content: "Call, hours and mobile service area." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -20,17 +20,17 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <SiteLayout>
-      <PageHeader eyebrow="Contact" title="Come see the studio." />
+      <PageHeader eyebrow="Contact" title="Book mobile detailing." />
       <section className="container-site grid gap-10 py-14 md:grid-cols-3">
         <div className="border-t pt-5">
-          <p className="eyebrow text-slate">Studio</p>
+          <p className="eyebrow text-slate">Service area</p>
           <p className="mt-3 text-lg font-bold text-navy">{BUSINESS.city}</p>
           <p className="mt-1 text-slate">Serving {BUSINESS.serviceArea}.</p>
         </div>
         <div className="border-t pt-5">
           <p className="eyebrow text-slate">Reach us</p>
-          <p className="mt-3 text-lg font-bold text-navy"><a href={`mailto:${BUSINESS.email}`} className="hover:text-navy">{BUSINESS.email}</a></p>
-          <p className="mt-1 text-slate">We reply within one business day.</p>
+          <p className="mt-3 text-lg font-bold text-navy"><a href={`tel:${BUSINESS.phone}`} className="hover:text-navy">{BUSINESS.phone}</a></p>
+          <p className="mt-1 text-slate">Call or text for availability.</p>
         </div>
         <div className="border-t pt-5">
           <p className="eyebrow text-slate">Hours</p>

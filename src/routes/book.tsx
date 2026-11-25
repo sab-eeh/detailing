@@ -21,9 +21,9 @@ export const Route = createFileRoute("/book")({
   validateSearch: (s: Record<string, unknown>): { service?: string } => (typeof s.service === "string" ? { service: s.service } : {}),
   head: () => ({
     meta: [
-      { title: "Book a Detailing Appointment Online — KVS Auto Detailing" },
-      { name: "description", content: "Choose a service and an available time at the KVS Auto Detailing detailing studio in Phoenix. Instant confirmation." },
-      { property: "og:title", content: "Book an Appointment — KVS Auto Detailing" },
+      { title: "Book Mobile Auto Detailing — Tru Detailerz GTA" },
+      { name: "description", content: "Choose a service and an available time with Tru Detailerz for mobile detailing across the GTA. Instant confirmation." },
+      { property: "og:title", content: "Book an Appointment — Tru Detailerz" },
       { property: "og:description", content: "Pick an available time online." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -116,7 +116,7 @@ function BookPage() {
     ["Starting price", money(cart.price)],
     ["Date", dateLabel],
     ["Time", f.time],
-    ["Location", done?.location ?? "KVS Auto Detailing Studio — Phoenix"],
+    ["Location", done?.location ?? "Mobile — Greater Toronto Area"],
   ];
 
   return (

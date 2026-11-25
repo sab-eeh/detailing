@@ -18,15 +18,15 @@ export const Route = createFileRoute("/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(serviceCatalogOptions),
   head: () => ({
     meta: [
-      { title: "KVS Auto Detailing — Precision Car Detailing in Phoenix, AZ" },
-      { name: "description", content: "Paint correction, ceramic coating, PPF and full detailing in Phoenix. Request an itemized quote or book online." },
-      { property: "og:title", content: "KVS Auto Detailing — Precision in Every Detail" },
-      { property: "og:description", content: "Paint correction, ceramic coating, PPF and full detailing in Phoenix, Arizona." },
+      { title: "Tru Detailerz — Mobile Auto Detailing in the GTA" },
+      { name: "description", content: "Mobile detailing, paint correction and ceramic coating across the Greater Toronto Area. Request a quote or book online." },
+      { property: "og:title", content: "Tru Detailerz — Precision in Every Detail" },
+      { property: "og:description", content: "Mobile auto detailing, paint correction and ceramic coating across the GTA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:image", content: heroPoster },
       { name: "twitter:image", content: heroPoster },
-      { property: "og:logo", content: "/kvs_auto_detailing_logo_transparent.png" },
+      { property: "og:logo", content: "/tru-detailerz-logo.png" },
     ],
     scripts: [
       {
@@ -155,7 +155,7 @@ function Home() {
       <section className="grid lg:grid-cols-2">
         <ParallaxImage src={GALLERY[1].src} alt={`${GALLERY[1].car} after ${GALLERY[1].work.toLowerCase()}`} className="min-h-[60vh] lg:min-h-full" />
         <div className="px-5 py-24 md:px-16 md:py-32 lg:max-w-2xl">
-          <Reveal><p className="eyebrow text-primary">Why KVS Auto Detailing</p></Reveal>
+          <Reveal><p className="eyebrow text-primary">Why Tru Detailerz</p></Reveal>
           <SplitHeadline text="The details that matter, handled properly." className="font-display text-display mt-5 text-navy" />
           <dl className="mt-12">
             {WHY.map(([I, t, d], i) => (
@@ -241,7 +241,7 @@ function Home() {
             <Reveal><p className="eyebrow text-sky">About the studio</p></Reveal>
             <SplitHeadline text="Obsessed With the Details That Matter." className="font-display text-display mt-5" />
             <Reveal delay={0.2}>
-              <p className="mt-8 leading-relaxed text-navy-muted">KVS Auto Detailing is a detailing studio in {BUSINESS.city}, serving {BUSINESS.serviceArea}. Each vehicle is inspected before work begins, prepared properly, and checked again before it goes home.</p>
+              <p className="mt-8 leading-relaxed text-navy-muted">Tru Detailerz provides mobile auto detailing across the {BUSINESS.city}. Each vehicle is inspected before work begins, prepared properly, and checked again before it goes home.</p>
               <Link to="/about" className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold"><span className="link-underline pb-1">More about the studio</span><ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
             </Reveal>
           </div>

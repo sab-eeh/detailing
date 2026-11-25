@@ -20,7 +20,7 @@ function nextFriday() {
   const d = new Date(now);
   const dow = now.getDay();
   d.setDate(now.getDate() + (((5 - dow + 7) % 7) || 7));
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Phoenix" }).format(d);
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto" }).format(d);
 }
 
 type Ctx = { customerId?: string; vehicleId?: string; leadId?: string; serviceId?: string; quoteId?: string; startsAt?: string };
@@ -43,7 +43,7 @@ export async function runDemoStep(key: string, ctx: Ctx): Promise<Ctx> {
   switch (key) {
     case "inquiry": {
       const { data: svc } = await supabase.from("services").select("id").eq("slug", "ceramic-coating").single();
-      const customerId = await ins("customers", { first_name: "John", last_name: "Smith", email: `john.smith+${Date.now() % 10000}@example.com`, phone: "(602) 555-0142", city: "Phoenix, AZ" });
+      const customerId = await ins("customers", { first_name: "John", last_name: "Smith", email: `john.smith+${Date.now() % 10000}@example.com`, phone: "(437) 555-0142", city: "Toronto, ON" });
       return { ...ctx, customerId, serviceId: svc?.id };
     }
     case "lead": {
@@ -55,7 +55,7 @@ export async function runDemoStep(key: string, ctx: Ctx): Promise<Ctx> {
       return c;
     }
     case "contacted": {
-      await ins("messages", { customer_id: ctx.customerId, lead_id: ctx.leadId, channel: "sms", direction: "outbound", automated: true, body: "Hi John, thanks for reaching out to KVS Auto Detailing! We received your Ceramic Coating request for your 2024 BMW M4. Is the paint new, or are there any swirls or chips we should know about?" });
+      await ins("messages", { customer_id: ctx.customerId, lead_id: ctx.leadId, channel: "sms", direction: "outbound", automated: true, body: "Hi John, thanks for reaching out to Tru Detailerz! We received your Ceramic Coating request for your 2024 BMW M4. Is the paint new, or are there any swirls or chips we should know about?" });
       await act(ctx, "auto_response", "Automatic response sent", "Instant Lead Response sent an SMS");
       await supabase.from("leads").update({ status: "contacted" }).eq("id", ctx.leadId!);
       await auto("instant_lead_response", ctx, "SMS response sent to John");
@@ -77,7 +77,7 @@ export async function runDemoStep(key: string, ctx: Ctx): Promise<Ctx> {
       ]);
       await supabase.from("leads").update({ status: "quoted" }).eq("id", ctx.leadId!);
       await act(ctx, "quote", "Quote created", "$1,200 ceramic coating quote sent");
-      await ins("messages", { customer_id: ctx.customerId, lead_id: ctx.leadId, channel: "email", direction: "outbound", automated: true, body: "Your KVS Auto Detailing quote is ready: Ceramic Coating for your 2024 BMW M4 — $1,200. Friday 10:00 AM is available." });
+      await ins("messages", { customer_id: ctx.customerId, lead_id: ctx.leadId, channel: "email", direction: "outbound", automated: true, body: "Your Tru Detailerz quote is ready: Ceramic Coating for your 2024 BMW M4 — $1,200. Friday 10:00 AM is available." });
       return { ...ctx, quoteId };
     }
     case "booked": {
@@ -86,7 +86,7 @@ export async function runDemoStep(key: string, ctx: Ctx): Promise<Ctx> {
       await ins("appointments", { customer_id: ctx.customerId, vehicle_id: ctx.vehicleId, service_id: ctx.serviceId, lead_id: ctx.leadId, starts_at: startsAt, duration_hours: 6, status: "confirmed" });
       await supabase.from("leads").update({ status: "booked" }).eq("id", ctx.leadId!);
       await act(ctx, "booked", "Appointment booked", "Ceramic Coating · Friday 10:00 AM");
-      await ins("messages", { customer_id: ctx.customerId, lead_id: ctx.leadId, channel: "sms", direction: "outbound", automated: true, body: "You're confirmed for Friday at 10:00 AM at our Phoenix studio. See you then!" });
+      await ins("messages", { customer_id: ctx.customerId, lead_id: ctx.leadId, channel: "sms", direction: "outbound", automated: true, body: "You're confirmed for Friday at 10:00 AM for mobile detailing in the GTA. See you then!" });
       return { ...ctx, startsAt };
     }
     case "reminder": {

@@ -36,9 +36,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-col bg-background">
       <header className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,color] duration-500 ${solid ? "border-b border-navy-foreground/10 bg-navy/95 backdrop-blur" : "border-b border-transparent bg-transparent"} text-navy-foreground`}>
         <div className="container-site flex h-[72px] items-center justify-between gap-6">
-          <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="KVS Auto Detailing home">
+          <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="Tru Detailerz home">
             <DetailingMark className="h-11" />
-            <span className="hidden font-display text-xl leading-none sm:block">KVS Auto Detailing</span>
+            <span className="hidden font-display text-xl leading-none sm:block">Tru Detailerz</span>
           </Link>
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
             {NAV.map((n) => (
@@ -88,14 +88,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="container-site grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12">
           <div className="sm:col-span-2 lg:col-span-4">
-            <div className="flex items-center gap-3"><DetailingMark className="h-14" /><span className="font-display text-2xl">KVS Auto Detailing</span></div>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-navy-muted">Hand detailing, paint correction, ceramic coating and paint protection film in {BUSINESS.city}.</p>
-            <p className="mt-6 text-sm text-navy-muted">Serving {["Phoenix", "Scottsdale", "Tempe", "Chandler", "Mesa", "Paradise Valley"].join(" · ")}</p>
+            <div className="flex items-center gap-3"><DetailingMark className="h-14" /><span className="font-display text-2xl">Tru Detailerz</span></div>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-navy-muted">Mobile auto detailing, paint correction and ceramic coating throughout the {BUSINESS.city}.</p>
+            <p className="mt-6 text-sm text-navy-muted">Serving the Greater Toronto Area</p>
           </div>
           <FooterCol title="Explore" className="lg:col-span-2" items={[...NAV.slice(1), { to: "/book", label: "Book appointment" }, { to: "/quote", label: "Get a quote" }].map((n) => <Link to={n.to} className="link-underline pb-0.5">{n.label}</Link>)} />
           <FooterCol title="Services" className="lg:col-span-3" items={SERVICES.map((s) => <Link to="/services/$slug" params={{ slug: s.slug }} className="link-underline pb-0.5">{s.name}</Link>)} />
           <FooterCol title="Studio" className="lg:col-span-3" items={[
-            <a href={`mailto:${BUSINESS.email}`} className="link-underline break-all pb-0.5">{BUSINESS.email}</a>,
+            <a href={`tel:${BUSINESS.phone}`} className="link-underline pb-0.5">{BUSINESS.phone}</a>,
             ...BUSINESS.hours.map((h) => <span className="text-navy-muted">{h.day}: {h.time}</span>),
             <Link to="/admin" className="text-navy-muted transition-colors hover:text-navy-foreground">Business login</Link>,
           ]} />

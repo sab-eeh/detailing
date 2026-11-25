@@ -1,5 +1,5 @@
 import { businessLocalToIso } from "./booking-validation";
-export const TZ = "America/Phoenix";
+export const TZ = "America/Toronto";
 
 export const money = (n: number | null | undefined) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n ?? 0);

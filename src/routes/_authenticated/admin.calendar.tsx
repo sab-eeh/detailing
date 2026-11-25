@@ -58,7 +58,7 @@ function CalendarPage() {
       {a.isLoading ? <RowsSkeleton /> : a.isError ? <ErrorState error={a.error} retry={() => a.refetch()} /> : view === "day" ? (
         <div className="rounded-md border bg-surface">
           {[8, 9, 10, 11, 12, 13, 14, 15, 16, 17].map((h) => {
-            const list = (byDay[dayKey(anchor)] ?? []).filter((x) => Number(new Intl.DateTimeFormat("en-US", { timeZone: "America/Phoenix", hour: "numeric", hour12: false }).format(new Date(x.starts_at))) === h);
+            const list = (byDay[dayKey(anchor)] ?? []).filter((x) => Number(new Intl.DateTimeFormat("en-US", { timeZone: "America/Toronto", hour: "numeric", hour12: false }).format(new Date(x.starts_at))) === h);
             return (
               <div key={h} className="flex min-h-14 border-b last:border-0">
                 <span className="tabular w-16 shrink-0 border-r px-2 py-2 text-[11px] text-slate">{h > 12 ? h - 12 : h}:00 {h >= 12 ? "PM" : "AM"}</span>
@@ -88,7 +88,7 @@ function CalendarPage() {
           </div>
         </div>
       )}
-      <p className="text-xs text-slate">Times shown in Arizona Time (Phoenix).</p>
+      <p className="text-xs text-slate">Times shown in Eastern Time (GTA).</p>
       <AppointmentSheet appt={current} onClose={() => setSel(null)} />
     </div>
   );

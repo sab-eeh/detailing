@@ -6,10 +6,10 @@ import { Reveal } from "@/components/site/Motion";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Ceramic Coating & PPF Work | KVS Auto Detailing" },
-      { name: "description", content: "Selected ceramic coating, paint correction and paint protection film work from the KVS Auto Detailing studio in Phoenix." },
-      { property: "og:title", content: "Gallery — KVS Auto Detailing" },
-      { property: "og:description", content: "Selected detailing work from our Phoenix studio." },
+      { title: "Gallery — Detailing Work | Tru Detailerz" },
+      { name: "description", content: "Selected ceramic coating, paint correction and exterior detailing work from Tru Detailerz in the GTA." },
+      { property: "og:title", content: "Gallery — Tru Detailerz" },
+      { property: "og:description", content: "Selected detailing work from Tru Detailerz across the GTA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

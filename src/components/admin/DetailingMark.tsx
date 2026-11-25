@@ -12,7 +12,7 @@ export function DetailingMark({
 }) {
   return (
     <img
-      src="/kvs_auto_detailing_logo_transparent.png"
+      src="/tru-detailerz-logo.png"
       alt={BRAND.demoBusiness.name}
       className={cn("aspect-square w-auto shrink-0 object-contain", compact ? "h-8" : "h-11", className)}
     />

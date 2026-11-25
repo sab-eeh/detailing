@@ -58,7 +58,7 @@ export async function updateQuote(id: string, patch: { status?: string; discount
 
 async function quoteSentEffects(quote: { number: string; customer_id: string; lead_id: string | null; vehicle_id?: string | null }) {
   await logActivity({ lead_id: quote.lead_id, customer_id: quote.customer_id, type: "quote", title: "Quote sent", detail: quote.number });
-  await must(supabase.from("messages").insert({ customer_id: quote.customer_id, lead_id: quote.lead_id, channel: "email", direction: "outbound", automated: true, body: `Your quote ${quote.number} from KVS Auto Detailing is ready to review.` }));
+  await must(supabase.from("messages").insert({ customer_id: quote.customer_id, lead_id: quote.lead_id, channel: "email", direction: "outbound", automated: true, body: `Your quote ${quote.number} from Tru Detailerz is ready to review.` }));
   await must(supabase.from("follow_ups").insert({ customer_id: quote.customer_id, lead_id: quote.lead_id, vehicle_id: quote.vehicle_id ?? null, type: "quote", reason: `Follow up on ${quote.number} if not accepted`, last_contact_at: new Date().toISOString(), next_contact_at: new Date(Date.now() + 48 * 3600000).toISOString(), status: "scheduled" }));
 }
 
@@ -101,8 +101,8 @@ export async function setAppointmentStatus(a: { id: string; customer_id: string;
 async function assertAvailable(start: string, duration: number, excludeId?: string) {
   if (!Number.isFinite(duration) || duration <= 0 || !Number.isFinite(Date.parse(start))) throw new Error("Choose a valid appointment time and duration.");
   if (Date.parse(start) <= Date.now()) throw new Error("Choose a future appointment time.");
-  const date = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Phoenix" }).format(new Date(start));
-  const time = new Intl.DateTimeFormat("en-US", { timeZone: "America/Phoenix", hour:"numeric", minute:"2-digit" }).format(new Date(start));
+  const date = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto" }).format(new Date(start));
+  const time = new Intl.DateTimeFormat("en-US", { timeZone: "America/Toronto", hour:"numeric", minute:"2-digit" }).format(new Date(start));
   validateBookingSlot(date,time,duration);
   const bounds = bookingDayBounds(date);
   const rows = await must<{ id: string; starts_at: string; duration_hours: number; status: string }[]>(supabase.from("appointments").select("id,starts_at,duration_hours,status").gte("starts_at", bounds.start).lt("starts_at", bounds.end));

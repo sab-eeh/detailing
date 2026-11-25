@@ -1,6 +1,6 @@
 import { TIME_SLOTS } from "./knowledge";
 
-const BUSINESS_TIME_ZONE = "America/Phoenix";
+const BUSINESS_TIME_ZONE = "America/Toronto";
 const MAX_BOOKING_DAYS_AHEAD = 14;
 const WEEKDAY_CLOSE_HOUR = 18;
 const SATURDAY_CLOSE_HOUR = 16;

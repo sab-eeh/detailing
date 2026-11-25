@@ -30,7 +30,7 @@ export function BookingWizard({ onClose, customerId = "", vehicleId = "", leadId
     try {
       const startsAt = validateBookingSlot(f.date, f.time, duration);
       const list = [chosen.map((s) => s.name).join(" + "), extras.length ? `Add-ons: ${extras.map((a) => a.name).join(", ")}` : ""].filter(Boolean).join("; ");
-      await bookAppointment({ customer_id: customer.id, vehicle_id: vehicle.id, service_id: primary.id, lead_id: leadId, starts_at: startsAt, duration_hours: duration, serviceName: list, location: f.mode === "Mobile" ? `Mobile — ${f.location.trim()}` : "KVS Auto Detailing Studio — Phoenix", notes: `Requested: ${list}\nBooking total: $${price}\n${f.notes}` });
+      await bookAppointment({ customer_id: customer.id, vehicle_id: vehicle.id, service_id: primary.id, lead_id: leadId, starts_at: startsAt, duration_hours: duration, serviceName: list, location: f.mode === "Mobile" ? `Mobile — ${f.location.trim()}` : "Tru Detailerz — Greater Toronto Area", notes: `Requested: ${list}\nBooking total: $${price}\n${f.notes}` });
       await invalidate(); toast.success("Booking confirmed"); onClose();
     } catch (e) { toast.error(e instanceof Error ? e.message : "Could not save booking"); } finally { setBusy(false); }
   }

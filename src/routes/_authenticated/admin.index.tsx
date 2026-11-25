@@ -13,7 +13,7 @@ import { adminHead, bookingAmount } from "@/lib/workspace";
 
 export const Route = createFileRoute("/_authenticated/admin/")({ head: () => adminHead("Overview"), component: Overview });
 function greeting() {
-  const h = Number(new Intl.DateTimeFormat("en-US", { timeZone: "America/Phoenix", hour: "numeric", hour12: false }).format(new Date()));
+  const h = Number(new Intl.DateTimeFormat("en-US", { timeZone: "America/Toronto", hour: "numeric", hour12: false }).format(new Date()));
   return h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening";
 }
 function Overview() {
